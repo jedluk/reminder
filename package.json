@@ -1,0 +1,19 @@
+{
+  "name": "reminder",
+  "version": "1.0.0",
+  "description": "You will never forget about crucial event anymore !",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jedluk/reminder.git"
+  },
+  "author": "Jedrzej Lukasiuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jedluk/reminder/issues"
+  },
+  "homepage": "https://github.com/jedluk/reminder#readme"
+}
