@@ -4,7 +4,8 @@
   "description": "You will never forget about crucial event anymore !",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "demon": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,17 @@
   "bugs": {
     "url": "https://github.com/jedluk/reminder/issues"
   },
-  "homepage": "https://github.com/jedluk/reminder#readme"
+  "homepage": "https://github.com/jedluk/reminder#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "method-override": "^2.3.10",
+    "moment": "^2.22.1",
+    "mongoose": "^5.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.4"
+  }
 }
