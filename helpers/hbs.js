@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 module.exports = {
   isFirstDayInMonth: day => {
     return day === 1 ? true : false;
@@ -11,9 +13,9 @@ module.exports = {
   beginWeek: (name, day) => {
     return name.toLowerCase() === "monday" || day === 1 ? true : false;
   },
-  //TODO: fix this one.
-  getWeek: day => {
-    return day < 8 ? 1 : day < 15 ? 2 : day < 22 ? 3 : day < 29 ? 4 : 5;
+  getWeek: date => {
+    const endWeek = moment(date).endOf('week');
+    return `Week ${moment(date).format('DD/MM')} - ${moment(endWeek.add(1,'day')).format('DD/MM')}`;
   },
   countOffset: day => {
     switch (day.toLowerCase()) {

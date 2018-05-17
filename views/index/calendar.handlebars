@@ -1,25 +1,27 @@
-<div class="myContainer">
 <h1>{{ month }} </h1>
-  {{#each days}}
-   {{#if (beginWeek this.name this.day)}}
+{{#each days}}
+  {{#if (beginWeek this.name this.number)}}
     <div class="row">
-    {{/if}}
-    {{#if (isFirstDayInMonth day)}}
+       <div class="col s12">
+        <h4 id="week{{ this.number }}">{{getWeek this.fullDay }}</h4>
+      </div> 
+  {{/if}}
+    {{#if (isFirstDayInMonth this.number)}}
       <div class="card col s3 {{ ../offset }}">
     {{else}}
-      {{#if (isFriday this.name)}}
-       <div class="card col s3 offset-s3">
-        {{else}}
-       <div class="card col s3">
-        {{/if}}
+  {{#if (isFriday this.name)}}
+     <div class="card col s3 offset-s3">
+  {{else}}
+     <div class="card col s3">
+  {{/if}}
     {{/if}}  
       <div class="card-image">
         <img src="img/bitmaps/{{this.img}}">
           <span class="card-title"></span>
           <a class="btn-floating halfway-fab waves-effect waves-light teal"><i class="far fa-calendar-plus"></i></a>
-        </div>
+      </div>
       <div class="card-content center-align">
-        <h4>{{this.name}}, {{this.day}}</h4>
+        <h4>{{this.name}}, {{this.number}}</h4>
       </div>
     </div>
      {{#if (endWeek this.name)}}
@@ -28,5 +30,5 @@
     {{/if}}
   {{/each}}
   </div>
-
+  {{> _scroll}}
   {{!-- offset-s6 --}}

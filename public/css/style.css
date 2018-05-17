@@ -25,3 +25,25 @@ main {
 .card:hover{
   transform: translateY(-2px);
 }
+
+@font-face {
+  font-family: 'MyWebFont';
+  src: url('../fonts/font.ttf') format('truetype'); 
+}  
+
+.fontExperimental {
+  font-family: 'MyWebFont';
+  font-size: 24px;
+}
+
+.flexik {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.zoomeMe:hover{
+  transform: scale(2.0);
+}

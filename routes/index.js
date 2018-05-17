@@ -26,13 +26,15 @@ router.get("/calendar", (req, res) => {
   const images = getImgNames(daysInMonth);
   const random = randomNoRepeats(images);
   for(let day = 1; day <= daysInMonth; day++){
+    const fullDay = moment(`${day} ${month}`);
     days.push({
-      day,
-      name: moment(`${month} ${day}`,'MMMM YYYY DD').format('dddd'),
+      fullDay: moment(fullDay),
+      number: day,
+      name: fullDay.format('dddd'),
       img: random()
     });
   }
-  const offset = countOffset( moment().startOf('month').format('dddd'));
+  const offset = countOffset(moment().startOf('month').format('dddd'));
   res.render("index/calendar", { days, month, offset });
 });
 
