@@ -1,0 +1,18 @@
+<h1>{{ month}} </h1>
+  {{#each days}}
+   {{#if (beginWeek day)}}
+    <div class="row">
+    {{/if}}
+    <div class="card col s3">
+      <div class="card-image">
+        <img src="img/bitmaps/{{this.img}}">
+          <span class="card-title">{{this.day}}</span>
+        </div>
+      <div class="card-content center-align">
+        <h2>{{this.day}}</h2>
+      </div>
+    </div>
+     {{#if (endWeek day)}}
+      </div>
+    {{/if}}
+  {{/each}}
