@@ -5,6 +5,7 @@ const moment = require("moment");
 const path = require('path');
 const HERE = __dirname;
 const fs = require('fs');
+const { countOffset } = require('../helpers/hbs');
 
 router.get("/",  (req, res) => {
   res.render("index/index");
@@ -12,9 +13,6 @@ router.get("/",  (req, res) => {
 
 router.get("/dashboard", (req, res) => {
   res.render("index/index");
-  // Story.find({ user: req.user.id }).then(stories => {
-  //   res.render("index/dashboard", { stories });
-  // });
 });
 
 router.get("/about", (req, res) => {
@@ -30,10 +28,12 @@ router.get("/calendar", (req, res) => {
   for(let day = 1; day <= daysInMonth; day++){
     days.push({
       day,
+      name: moment(`${month} ${day}`,'MMMM YYYY DD').format('dddd'),
       img: random()
     });
   }
-  res.render("index/calendar", { days, month });
+  const offset = countOffset( moment().startOf('month').format('dddd'));
+  res.render("index/calendar", { days, month, offset });
 });
 
 const getImgNames = (amount) => {

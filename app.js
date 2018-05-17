@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 // require("./models/Note")
 
 // Handlebars helpers
-const { endWeek, beginWeek } = require("./helpers/hbs");
+const { endWeek, beginWeek, getWeek, isFirstDayInMonth, isFriday } = require("./helpers/hbs");
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
@@ -21,8 +21,11 @@ app.engine(
   "handlebars",
   exphbs({
     helpers: {
+      isFirstDayInMonth,
+      isFriday,
       endWeek,
-      beginWeek
+      beginWeek,
+      getWeek
     },
     defaultLayout: "main"
   })

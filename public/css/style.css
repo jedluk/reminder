@@ -15,3 +15,9 @@ main {
 .m-s{
   margin-left: 6px;
 }
+
+.weekBreaker {
+  margin-bottom: 50px;
+  /* border-bottom: 1px solid; */
+  min-width: 100%;
+}
