@@ -3,7 +3,7 @@ let toggleUp = false;
 
 window.addEventListener('scroll', () => {
   if (document.body.clientHeight - (window.pageYOffset + window.innerHeight) < 200) {
-    scroller.firstChild.nextSibling.className = "fas fa-arrow-up";
+    scroller.firstChild.nextSibling.className = "fas fa-caret-up";
     toggleUp = true;
   } 
 })
@@ -28,7 +28,7 @@ const scrollUp = () => {
     behavior: "smooth"
   });
   setTimeout(() => {
-    scroller.firstChild.nextSibling.className = "fas fa-arrow-down";
+    scroller.firstChild.nextSibling.className = "fas fa-caret-down";
     toggleUp = false;
   }, 1000)
 }

@@ -25,4 +25,4 @@ else
 const curr_month = d.getMonth();
 const curr_year = d.getFullYear();
 
-document.getElementById('header-date').innerHTML = `Today is ${curr_date} <SUP> ${sup}</SUP> ${m_names[curr_month]} ${curr_year}`;
+document.getElementById('header-date').innerHTML = `Today is ${curr_date}<SUP>${sup}</SUP> ${m_names[curr_month]} ${curr_year}`;

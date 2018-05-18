@@ -5,16 +5,16 @@ module.exports = {
     return day === 1 ? true : false;
   },
   isFriday: day => {
-    return day.toLowerCase() === "friday" ? true : false;
+    return /^fri/.test(day.toLowerCase()) ? true : false;
   },
   endWeek: name => {
-    return name.toLowerCase() === "sunday" ? true : false;
+    return /^sun/.test(name.toLowerCase()) ? true : false;
   },
   beginWeek: (name, day) => {
-    return name.toLowerCase() === "monday" || day === 1 ? true : false;
+    return /^mon/.test(name.toLowerCase()) || day === 1 ? true : false;
   },
   getWeek: date => {
-    const endWeek = moment(date).endOf('week');
+    const endWeek = moment(date,'DD MMMM YYYY').endOf('week');
     return `Week ${moment(date).format('DD/MM')} - ${moment(endWeek.add(1,'day')).format('DD/MM')}`;
   },
   countOffset: day => {
