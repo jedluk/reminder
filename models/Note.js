@@ -1,5 +1,3 @@
-import { MongooseDocument } from 'mongoose';
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -22,4 +20,4 @@ const NoteSchema = new Schema({
   }
 });
 
-mongoose.model('notes', Note);
+mongoose.model('notes', NoteSchema);

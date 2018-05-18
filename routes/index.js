@@ -7,12 +7,14 @@ const HERE = __dirname;
 const fs = require('fs');
 const { countOffset } = require('../helpers/hbs');
 
-router.get("/",  (req, res) => {
+const { ensureAuthenticated, ensureGuest } = require("../helpers/auth");
+
+router.get("/",  ensureGuest, (req, res) => {
   res.render("index/index");
 });
 
-router.get("/dashboard", (req, res) => {
-  res.render("index/index");
+router.get("/dashboard", ensureAuthenticated, (req, res) => {
+  res.render("index/dashboard");
 });
 
 router.get("/about", (req, res) => {
