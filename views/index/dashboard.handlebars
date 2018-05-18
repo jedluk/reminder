@@ -1,6 +1,26 @@
 <div class="mainFlex">
-  <a href="/notes"><i class="far fa-calendar-alt teal-text text-darken-2 zoomMe" style="font-size: 300px"></i></a>
   <h1 class="fontExperimental">
     Welcome back {{ user.firstName }} {{ user.lastName }} !
   </h1>
+  <div class="row">
+    <div class="col s4">
+      <a href="/notes">
+      <i class="far fa-calendar-plus teal-text text-darken-2 dashboardIcon"></i>
+      </a>
+      <h3 class="center-align">Add new event</h3>
+    </div>
+    <div class="col s4">
+      <i class="far fa-calendar-times teal-text text-darken-2 dashboardIcon"></i>
+      <h3 class="center-align">Remove event</h3>
+    </div>
+    <div class="col s4">
+      <a href="/plans/weekly">
+        <i class="far fa-calendar-alt teal-text text-darken-2 dashboardIcon"></i>
+      </a>
+      <h3 class="center-align">See weekly plan</h3>
+    </div>
+
+  </div>
+
+
 </div>

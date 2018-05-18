@@ -8,6 +8,10 @@ main {
   flex: 1 0 auto; 
 }
 
+h3 {
+  font-size: 20px;
+}
+
 .nav-wrapper .fa-bars {
   font-size: 25px;
 }
@@ -47,3 +51,7 @@ main {
 .zoomeMe:hover{
   transform: scale(2.0);
 }
+
+.dashboardIcon{
+  font-size: 300px;
+} 
