@@ -1,51 +1,56 @@
+<h1>Weekly plan</h1>
+{{#each week }}
 <div class="row">
   <div class="col s3">
     <div class="card">
       <div class="card-image">
-        <img src="../img/bitmaps/bitmap2.jpg">
+        <img src="../img/bitmaps/{{this.img}}">
+         <a href="/notes/add/{{this.date}}" class="btn-floating halfway-fab waves-effect waves-light teal"><i class="far fa-calendar-plus"></i></a>
       </div>
-      <div class="card-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, rerum!</div>
+      <div class="card-content center-align">
+        <h4>{{singleDay this.date}}</h4>
+        </div>
     </div>
   </div>
-  <div class="col offset-s1 s7">
-    <table class="stripped">
-      <thead>
-        <tr>
-          <th>Hour</th>
-          <th>Event</th>
-          <th>Description</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            dassdsa
-          </td>
-          <td>
-            daswe
-          </td>
-          <td>
-            dawqewqe
-          </td>
-          <td>
-            <a class="btn left-align" href="/notes/edit/{{id}}">
-              <i class="fa fa-pencil marginMedium"></i>Edit
-            </a>
-            <a href="#">
-              <button class="btn red">
-                <i class="fa fa-remove marginMedium"></i>Delete
-              </button>
-            </a>
-            {{!--
-            <form action="/stories/{{id}}?_method=DELETE" class="delete-form" method="post">
-              <input type="hidden" name="_method" value="delete">
-              <button class="btn red">
-                <i class="fa fa-remove marginMedium"></i>Delete</button>
-            </form> --}}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  {{#if this.note}}
+    <div class="col offset-s1 s7">
+      <table class="highlight">
+        <thead>
+          <tr>
+            <th>Hour</th>
+            <th>Event</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each this.note}}
+          <tr>
+            <td>
+              {{singleHour this.date}}
+            </td>
+            <td>
+              {{this.title}}
+            </td>
+            <td>
+              {{{this.body}}}
+            </td>
+            <td>
+              {{!-- <a class="btn left-align" href="/notes/edit/{{id}}">
+                <i class="fa fa-pencil marginMedium"></i>Edit
+              </a> --}}
+                <form action="/notes/{{id}}?_method=DELETE" class="delete-form" method="post">
+                 <input type="hidden" name="_method" value="delete">
+                  <button class="btn red">
+                    <i class="fa fa-remove marginMedium"></i>Delete
+                  </button>
+                </form>
+            </td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    </div>
+  {{/if}}
 </div>
+{{/each}} 

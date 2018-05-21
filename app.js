@@ -26,6 +26,8 @@ const {
   beginWeek,
   getWeek,
   isFirstDayInMonth,
+  singleHour,
+  singleDay,
   isFriday
 } = require("./helpers/hbs");
 app.engine(
@@ -36,6 +38,8 @@ app.engine(
       isFriday,
       endWeek,
       beginWeek,
+      singleHour,
+      singleDay,
       getWeek
     },
     defaultLayout: "main"
@@ -61,7 +65,5 @@ app.use((req, res, next) => {
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
 app.use("/notes", require("./routes/notes"));
-app.use("/plans", require("./routes/plans"));
 app.use(express.static(path.join(__dirname, "public")));
-
 app.listen(process.env.PORT || 5000, () => console.log("Server is running"));

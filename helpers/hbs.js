@@ -17,6 +17,12 @@ module.exports = {
     const endWeek = moment(date,'DD MMMM YYYY').endOf('week');
     return `Week ${moment(date).format('DD/MM')} - ${moment(endWeek.add(1,'day')).format('DD/MM')}`;
   },
+  singleHour: date => {
+    return moment(date).format('HH:mm:ss');
+  },
+  singleDay: date => {
+    return moment(date).format('Do, dddd');
+  },
   countOffset: day => {
     switch (day.toLowerCase()) {
       case "tuesday":

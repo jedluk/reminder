@@ -1,7 +1,7 @@
-<h1>Add event for the {{ today }}</h1>
+<h1>Add event for the {{ day }}</h1>
 <div class="row">
   <form action="/notes" method="post" class="col s12">
-    <input style="display: none" name="day" value='{{today}}'>
+    <input style="display: none" name="day" value='{{ day }}'>
     <div class="row">
       <div class="input-field">
         <input type="text" name="title">

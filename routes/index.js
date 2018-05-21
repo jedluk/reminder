@@ -2,11 +2,8 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const moment = require("moment");
-const path = require('path');
-const HERE = __dirname;
-const fs = require('fs');
 const { countOffset } = require('../helpers/hbs');
-
+const { getImgNames, randomNoRepeats } = require('../helpers/imgChooser');
 const { ensureAuthenticated, ensureGuest } = require("../helpers/auth");
 
 router.get("/",  ensureGuest, (req, res) => {
@@ -37,24 +34,7 @@ router.get("/calendar", (req, res) => {
     });
   }
   const offset = countOffset(moment().startOf('month').format('dddd'));
-  res.render("index/calendar", { days, month, offset }); // { days, month, offset }
+  res.render("index/calendar", { days, month, offset });
 });
-
-const getImgNames = (amount) => {
-  const imgDir = path.join(HERE, '..' , 'public', 'img', 'bitmaps');
-  const images = fs.readdirSync(imgDir,'utf8');
-  return images;
-}
-
-const randomNoRepeats = (array) => {
-  let copy = array.slice(0);
-  return () => {
-    if (copy.length < 1) { copy = array.slice(0); }
-    const index = Math.floor(Math.random() * copy.length);
-    const item = copy[index];
-    copy.splice(index, 1);
-    return item;
-  };
-}
 
 module.exports = router;
