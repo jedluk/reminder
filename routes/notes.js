@@ -72,7 +72,7 @@ const prepareDayStructure = () => {
   }];
   for(let nextDay = 1; nextDay < WEEK_DAYS ; nextDay++){
     week.push({
-      date: moment(week[0].day).add(nextDay,'d'),
+      date: moment(week[0].date).add(nextDay,'d'),
       note: [],
       img: random()
     });
