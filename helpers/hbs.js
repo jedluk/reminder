@@ -23,6 +23,18 @@ module.exports = {
   singleDay: date => {
     return moment(date).format('Do, dddd');
   },
+  select: function(selected, options) {
+    return options
+    .fn(this)
+    .replace(
+      new RegExp(' value="' + selected + '"'),
+      '$& selected="selected"'
+    )
+    .replace(
+      new RegExp(">" + selected + "</option>"),
+      ' selected="selected"$&'
+    );
+  },
   countOffset: day => {
     switch (day.toLowerCase()) {
       case "tuesday":
@@ -30,6 +42,12 @@ module.exports = {
       case "wednesday":
         return "offset-s6";
       case "thursday":
+        return "offset-s9";
+      case "friday":
+        return "offset-s3";
+      case "saturday":
+        return "offset-s6";
+      case "sunday":
         return "offset-s9";
       default:
         return "";

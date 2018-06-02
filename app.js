@@ -28,7 +28,8 @@ const {
   isFirstDayInMonth,
   singleHour,
   singleDay,
-  isFriday
+  isFriday,
+  select
 } = require("./helpers/hbs");
 app.engine(
   "handlebars",
@@ -40,7 +41,8 @@ app.engine(
       beginWeek,
       singleHour,
       singleDay,
-      getWeek
+      getWeek,
+      select
     },
     defaultLayout: "main"
   })

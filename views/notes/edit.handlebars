@@ -1,0 +1,59 @@
+<h1>Edit event</h1>
+<div class="row">
+  <form action="/notes/{{note.id}}?_method=PUT" method="post" class="col s12">
+    <input type="hidden" name="_method" value="PUT">
+    <div class="row">
+      <div class="input-field">
+        <input type="text" name="title" value="{{note.title}}">
+        <label for="title">Event name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6">
+        <div class="input-filed">
+          <label for="fullHour">Full Hour</label>
+          <select name="fullHour">
+            {{#select fullHour}}
+            <option value="7" selected>07:00</option>
+            <option value="8">08:00</option>
+            <option value="9">09:00</option>
+            <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option>
+            <option value="13">13:00</option>
+            <option value="14">14:00</option>
+            <option value="15">15:00</option>
+            <option value="16">16:00</option>
+            <option value="17">17:00</option>
+            <option value="18">19:00</option>
+            <option value="19">20:00</option>
+            {{/select}}
+          </select>
+          <label for="status">Status</label>
+        </div>
+      </div>
+      <div class="col s6">
+        <div class="input-filed">
+          <label for="quarter">Quarter of hour</label>
+          <select name="quarter">
+            {{#select quarter}}
+            <option value="00" >00</option>
+            <option value="15">15</option>
+            <option value="30">30</option>
+            <option value="45">45</option>
+            {{/select}}
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-filed">
+        <h5>Additional notes</h5>
+        <textarea type="text" name="body">{{note.body}} </textarea>
+      </div>
+    </div>
+    <div class="row right-align">
+    <input type="submit" value="Save" class="btn teal darken-2">
+    </div>
+  </form>
+</div>

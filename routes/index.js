@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const moment = require("moment");
 const { countOffset } = require('../helpers/hbs');
-const { getImgNames, randomNoRepeats } = require('../helpers/imgChooser');
+const { getImgNames, randomNoRepeats } = require('../helpers/daysAndImages');
 const { ensureAuthenticated, ensureGuest } = require("../helpers/auth");
 
 router.get("/",  ensureGuest, (req, res) => {
