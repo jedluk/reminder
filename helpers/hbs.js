@@ -38,15 +38,12 @@ module.exports = {
   countOffset: day => {
     switch (day.toLowerCase()) {
       case "tuesday":
-        return "offset-s3";
-      case "wednesday":
-        return "offset-s6";
-      case "thursday":
-        return "offset-s9";
       case "friday":
         return "offset-s3";
+      case "wednesday":
       case "saturday":
         return "offset-s6";
+      case "thursday":
       case "sunday":
         return "offset-s9";
       default:
