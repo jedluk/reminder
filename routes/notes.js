@@ -18,13 +18,13 @@ router.get("/", ensureAuthenticated, (req, res) => {
 
 router.post("/", ensureAuthenticated, (req, res) => {
   const { title, fullHour, quarter, body, day } = req.body;
-  const date = moment(day);
-  date.add(parseInt(fullHour), "hours").format("HH");
-  date.add(parseInt(quarter), "minutes").format("mm");
+  const date = moment(day, 'DD MMMM YYYY');
+  date.add(parseInt(fullHour), "hours");
+  date.add(parseInt(quarter), "minutes");
   const newNote = {
     title,
     body,
-    date: new Date(date),
+    date,
     user: req.user.id
   };
   new Note(newNote)
@@ -72,25 +72,27 @@ router.get("/edit/:id", ensureAuthenticated, (req, res) => {
 router.put("/:id", (req, res) => {
   Note.findOne({
     _id: req.params.id
-  }).then(note => {
-    const { title, body, fullHour, quarter } = req.body;
-    note.title = title;
-    note.body = body;
-    note.date = new Date(
-      note.date
-        .toString()
-        .replace(
-          /\d{2}:\d{2}:\d{2}/,
-          `${parseInt(fullHour)}:${parseInt(quarter)}:00`
-        )
-    );
-    note
-      .save()
-      .then(() => {
-        res.redirect("/notes/weekly");
-      })
-      .catch(err => console.log(err));
-  });
+  })
+    .then(note => {
+      const { title, body, fullHour, quarter } = req.body;
+      note.title = title;
+      note.body = body;
+      note.date = new Date(
+        note.date
+          .toString()
+          .replace(
+            /\d{2}:\d{2}:\d{2}/,
+            `${parseInt(fullHour)}:${parseInt(quarter)}:00`
+          )
+      );
+      note
+        .save()
+        .then(() => {
+          res.redirect("/notes/weekly");
+        })
+        .catch(err => console.log(err));
+    })
+    .catch(err => console.log(err));
 });
 
 router.delete("/:id", (req, res) => {
