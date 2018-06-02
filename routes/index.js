@@ -22,7 +22,7 @@ router.get("/calendar", (req, res) => {
   const days = [];
   const month = moment().format('MMMM YYYY');
   const daysInMonth = moment().daysInMonth();
-  const images = getImgNames(daysInMonth);
+  const images = getImgNames();
   const random = randomNoRepeats(images);
   for(let day = 1; day <= daysInMonth; day++){
     const fullDay = moment(`${day} ${month}`, 'DD MMMM YYYY');

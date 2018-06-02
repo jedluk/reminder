@@ -21,7 +21,6 @@ const scrollDown = () => {
 }
 
 const scrollUp = () => {
-  console.log('setting false')
   window.scroll({
     top: 0,
     left: 0,

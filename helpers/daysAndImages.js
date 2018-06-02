@@ -3,7 +3,7 @@ const fs = require("fs");
 const moment = require("moment");
 const HERE = __dirname;
 
-const getImgNames = amount => {
+const getImgNames = () => {
   const imgDir = path.join(HERE, "..", "public", "img", "bitmaps");
   const images = fs.readdirSync(imgDir, "utf8");
   return images;
@@ -24,7 +24,7 @@ const randomNoRepeats = array => {
 
 const prepareDayStructure = () => {
   const WEEK_DAYS = 7;
-  const images = getImgNames(WEEK_DAYS);
+  const images = getImgNames();
   const random = randomNoRepeats(images);
   const week = [
     {
