@@ -37,4 +37,8 @@ router.get("/calendar", (req, res) => {
   res.render("index/calendar", { days, month, offset });
 });
 
+router.get('*', (req,res) => {
+  res.status(404).send({msg: "Not Found"});
+})
+
 module.exports = router;

@@ -1,7 +1,5 @@
-const mocha = require("mocha");
 const assert = require("chai").assert;
 const moment = require("moment");
-
 const {
   isFriday,
   countOffset,
