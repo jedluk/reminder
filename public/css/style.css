@@ -8,6 +8,11 @@ main {
   flex: 1 0 auto; 
 }
 
+h1 {
+  font-size: 24px;
+  text-align: center;
+}
+
 h3 {
   font-size: 20px;
 }
@@ -37,7 +42,6 @@ h3 {
 
 .fontExperimental {
   font-family: 'MyWebFont';
-  font-size: 24px;
 }
 
 .mainFlex {
@@ -47,6 +51,13 @@ h3 {
   justify-content: space-around;
   align-items: center;
 }
+
+/* .weeklyFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+} */
 
 .zoomeMe:hover{
   transform: scale(2.0);
@@ -58,9 +69,10 @@ h3 {
 
 @media screen and (max-width: 992px){
   .dashboardIcon{
-    font-size: 150px;
+    font-size: 200px;
   }
   h1 { 
-    font-size: 16px;
+    font-size: 14px;
   }
 }
+

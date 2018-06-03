@@ -7,12 +7,12 @@
       </div> 
   {{/if}}
     {{#if (isFirstDayInMonth this.number)}}
-      <div class="card col s3 {{ ../offset }}">
+      <div class="card col s9 m6 l3 {{ ../offset }}">
     {{else}}
       {{#if (isFriday this.name)}}
-        <div class="card col s3 offset-s3">
+        <div class="card col s9 m6 l3">
       {{else}}
-        <div class="card col s3">
+        <div class="card col s9 m6 l3">
       {{/if}}
     {{/if}}  
       <div class="card-image">

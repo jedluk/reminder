@@ -28,19 +28,32 @@
       </ul>
       {{!-- SIDENAV --}}
       <ul class="side-nav" id="main-menu">
+        {{#if user}}
+        <li class="center-align">
+          <a href="/auth/logout">Log out
+            <i class="fas fa-sign-out-alt red-text text-darken-1"></i>
+          </a>
+        </li>
+        {{else}}
+        <li class="center-align">
+          <a href="/auth/google">Log in
+            <i class="fab fa-google m-s red-text text-darken-1"></i>
+          </a>
+        </li>
+        {{/if}}
         <li>
-          <a href="https://facebook.com" target="_blank">
-            <i class="fab fa-facebook-square"></i>
+          <a href="https://facebook.com" target="_blank"> Facebook
+            <i class="fab fa-facebook-square blue-text blue-darken-4"></i>
           </a>
         </li>
         <li>
-          <a href="https://twitter.com" target="_blank">
-            <i class="fab fa-twitter-square"></i>
+          <a href="https://twitter.com" target="_blank"> Twitter
+            <i class="fab fa-twitter-square blue-text"></i>
           </a>
         </li>
         <li>
-          <a href="https://linkedin.com" target="_blank">
-            <i class="fab fa-linkedin"></i>
+          <a href="https://linkedin.com" target="_blank"> Linkedin
+            <i class="fab fa-linkedin blue-text blue-darken-2"></i>
           </a>
         </li>
       </ul>

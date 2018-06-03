@@ -1,7 +1,7 @@
 <h1>Weekly plan</h1>
 {{#each week }}
-<div class="row">
-  <div class="col s3">
+<div class="row weeklyFlex">
+  <div class="col s12 m4">
     <div class="card">
       <div class="card-image">
         <img src="../img/bitmaps/{{this.img}}">
@@ -15,8 +15,8 @@
     </div>
   </div>
   {{#if this.note}}
-  <div class="col s7">
-    <table class="centered striped">
+  <div class="col s12 m6">
+    <table class="centered striped responsive-table">
       <thead>
         <tr>
           <th>Hour</th>
