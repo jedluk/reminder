@@ -19,6 +19,9 @@ const {
   select
 } = require("./helpers/hbs");
 
+require("./models/User");
+require("./models/Note");
+require("./config/passport")(passport);
 const app = express();
 mongoose.Promise = global.Promise;
 mongoose
