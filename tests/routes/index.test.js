@@ -10,11 +10,11 @@ describe("server main routes", () => {
       .end(done);
   });
 
-  it("should redirect to index while user is not authenticated on dashboard page", done => {
+  it("should redirect to google auth when user try to add event without authorization", done => {
     request(app)
       .get("/dashboard")
       .expect(302)
-      .expect("Location", "/")
+      .expect("Location", "/auth/google")
       .end(done);
   });
 
@@ -31,14 +31,6 @@ describe("server main routes", () => {
       .get("/calendar")
       .expect(200)
       .expect("Content-Type", /html/)
-      .end(done);
-  });
-
-  it("should response with status 404 and msg not found on uknown route", done => {
-    request(app)
-      .get("/somethingverywrong")
-      .expect(404)
-      .expect({ msg: "Not Found" })
       .end(done);
   });
 });
